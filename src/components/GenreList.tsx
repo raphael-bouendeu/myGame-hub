@@ -1,5 +1,6 @@
 import React from "react"
 import useGenres, { Genre } from "../hooks/useGenres"
+
 import {
   List,
   ListItem,
@@ -18,16 +19,16 @@ interface Props {
 }
 
 const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
-  const { data, isLooading, error } = useGenres()
+  const { data, isLoading, error } = useGenres()
   if (error) return null
-  if (isLooading) return <Spinner />
+  if (isLoading) return <Spinner />
   return (
     <>
       <Heading fontSize="2xl" marginBottom={3}>
         Genres
       </Heading>
       <List>
-        {data.map((genre) => (
+        {data?.map((genre) => (
           <ListItem key={genre.id} paddingY="5px">
             <HStack>
               <Image

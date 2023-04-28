@@ -12,7 +12,7 @@ const useData = <T>(endpoint: string, requestConfig?: AxiosRequestConfig, deps?:
 
     const [data, setData] = useState<T[]>([])
     const [error, setError] = useState("")
-    const [isLooading, setLoading] = useState(false)
+    const [isLoading, setLoading] = useState(false)
     useEffect(() => {
         const controller = new AbortController()
         setLoading(true)
@@ -31,7 +31,7 @@ const useData = <T>(endpoint: string, requestConfig?: AxiosRequestConfig, deps?:
     }, deps ? [...deps] : [])
 
     return {
-        data, error, isLooading
+        data, error, isLoading
     }
 }
 export default useData;
